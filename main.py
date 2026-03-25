@@ -29,7 +29,7 @@ bot = Bot(token)
 dp = Dispatcher()
 db = database("users.db")
 
-DEVELOPER_ID = 1040929628
+DEVELOPER_ID = 8221647504
 
 # Middleware для проверки блокировки пользователя
 class BlockedUserMiddleware:
@@ -202,7 +202,7 @@ async def search_chat(message: Message):
 
     if not await is_subscribed(message.from_user.id):
         subscribe_markup = InlineKeyboardMarkup(inline_keyboard=[
-            [InlineKeyboardButton(text="✅ Подписаться", url="https://t.me/freedom346")],
+            [InlineKeyboardButton(text="✅ Подписаться", url="https://t.me/anonuznews")],
             [InlineKeyboardButton(text="🔄 Проверить подписку", callback_data="check_sub")]
         ])
         await message.answer(
@@ -525,7 +525,7 @@ async def handler_message(message: Message):
 
 async def is_subscribed(user_id: int) -> bool:
     try:
-        member = await bot.get_chat_member(chat_id="@freedom346", user_id=user_id)
+        member = await bot.get_chat_member(chat_id="@anonuznews", user_id=user_id)
         return member.status in [ChatMemberStatus.MEMBER, ChatMemberStatus.ADMINISTRATOR, ChatMemberStatus.CREATOR]
     except Exception:
         return False
