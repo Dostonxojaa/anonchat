@@ -1,0 +1,16 @@
+# Exported from Render on 2025-02-04T18:06:28Z
+services:
+- type: web
+  name: AnonChat
+  runtime: python
+  repo: https://github.com/Jeremih333/AnonChat
+  plan: free
+  envVars:
+  - key: Jeremih_Carrel
+    sync: false
+  region: oregon
+  buildCommand: pip install -r requirements.txt
+  startCommand: python main.py
+  previews:
+    generation: automatic
+version: "1"
